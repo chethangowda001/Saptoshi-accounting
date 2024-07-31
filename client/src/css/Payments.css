@@ -1,0 +1,45 @@
+/* Payments.css */
+
+.payments-container {
+    max-width: 95%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  h3 {
+    color: #333;
+  }
+  
+  .payments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .payments-table th,
+  .payments-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .payments-table th {
+    text-align: center;
+    background-color: #db7d76; /* Light golden/yellow */
+    color: #353030; /* Dark blue */
+  }
+  
+  .payments-table tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
+  .payments-table tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .payments-summary {
+    background-color: #efb9b5;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

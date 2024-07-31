@@ -1,0 +1,44 @@
+/* RegisteredUsers.css */
+
+.registered-users-container {
+  max-width: 95%;
+  margin: auto;
+  padding: 20px;
+}
+
+h3 {
+  color: #333;
+}
+
+.registered-users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.registered-users-table th,
+.registered-users-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.registered-users-table th {
+  text-align: center;
+  background-color: #7c16bb; /* Header color */
+  color: #fff; /* Text color */
+}
+
+.registered-users-table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.registered-users-table tr:hover {
+  background-color: #e0e0e0;
+}
+
+.summary {
+  background-color: #cae8a2;
+  margin-top: 20px;
+  font-weight: bold;
+}
