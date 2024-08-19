@@ -1,24 +1,32 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './Components/Header';
-import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
-
 import BidderDetails from './Components/Admin/BidderDetails';
-const App = () => {
-  // const [authToken, setAuthToken] = useState(localStorage.getItem('token'));
-  // const apiUrl = process.env.REACT_APP_API_URL;
+import SignUp from './Components/SignUp';
+import SignIn from './Components/SignIn';
+import Logout from './Components/Logout';
+import { AuthContext, AuthProvider } from './contexts/AuthContext';
 
+const PrivateRoute = ({ element, ...rest }) => {
+  const { isAuthenticated } = useContext(AuthContext);
+  return isAuthenticated ? element : <Navigate to="/" />;
+};
+
+const App = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Login  />} />
-        <Route path="/dashboard/*" element={<Dashboard />} />
-        <Route path="/bidder-details/:bidId" element={<BidderDetails />} />
-      </Routes>
-     
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard/*" element={<PrivateRoute element={<Dashboard />} />} />
+          <Route path="/bidder-details/:bidId" element={<PrivateRoute element={<BidderDetails />} />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 };
 

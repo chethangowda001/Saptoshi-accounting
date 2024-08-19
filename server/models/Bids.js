@@ -46,6 +46,7 @@ const bidSchema = new Schema({
         }
       ],
       BidStart: {type: Boolean, default: false},
+      
       BidClose: {type: Boolean, default: false},
     }
   ],
