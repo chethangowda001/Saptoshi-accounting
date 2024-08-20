@@ -1,5 +1,8 @@
 const Participant = require('../models/Participants');
 
+
+
+
 exports.getAllParticipants = async (req, res) => {
   try {
     const participants = await Participant.find();
@@ -11,10 +14,11 @@ exports.getAllParticipants = async (req, res) => {
 };
 
 exports.addParticipant = async (req, res) => {
-  const { userName, userPhoneNo, userEmail, address } = req.body;
+  const { userName, userPhoneNo, userEmail, address,aadharNo,panNo, } = req.body;
+  const profileImageURL = req.file ? req.file.path : null;
 
   try {
-    const newParticipant = new Participant({ userName, userPhoneNo, userEmail, address });
+    const newParticipant = new Participant({ userName, userPhoneNo, userEmail, address,aadharNo,panNo, profileImageURL });
     await newParticipant.save();
     res.status(201).json(newParticipant);
   } catch (error) {
